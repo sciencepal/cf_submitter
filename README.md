@@ -11,6 +11,7 @@ Create a command line problem submitter for codeforces.com contests (cf rounds)
 4. Go to http://codeforces.com and Inspect Element in browser
 5. Search all these parameters separately : **bfaa**, **_tta**, **csrf_token**
 6. Substitute values at the beginning of the script
+7. Substitute locations of cookie file etc in script (changes needed are documented in script)
 
 **Additional steps for ease of access**
 
