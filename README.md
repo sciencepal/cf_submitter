@@ -8,7 +8,7 @@ Create a command line problem submitter for codeforces.com contests (cf rounds)
 1. Clone repo to local (say, /opt/cf_submitter)
 2. Go to Firefox browser
 3. Login/Relogin to codeforces and check option for Remember me for a month
-4. Go to http://codeforces.com and Inspect Element
+4. Go to http://codeforces.com and Inspect Element in browser
 5. Search all these parameters separately : **bfaa**, **_tta**, **csrf_token**
 6. Substitute values at the beginning of the script     // _tta is essential rest are optional
 
