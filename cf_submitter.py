@@ -19,6 +19,11 @@ def create_connection(db_file):
 def set_cookie():
   ck = ""
   sz = ""
+  
+  ''' Firefox cookies are stored in sqlite db
+      However they have lock acquired in thier original location (firefox process is expected to be running)
+      Hence the need to copy to another location'''
+  
   os.system('cp /home/aditya/.mozilla/firefox/x7yfuu12.default/cookies.sqlite /home/aditya')
   conn = create_connection('/home/aditya/cookies.sqlite')
   if (conn is None):
@@ -38,6 +43,9 @@ def set_cookie():
         sz = str(row[0])
         break
       ck_dict = {'cookie' : ck, 'ftaa' : sz}
+      
+      '' 'Store cookie data in pickle file '''
+      
       with open('cookie_file.dat', 'wb') as cookie_file:
         cookie_file.truncate(0)
         pickle.dump(ck_dict, cookie_file, protocol=pickle.HIGHEST_PROTOCOL)
@@ -72,15 +80,11 @@ def get_contest():
 
 
 def submit(problem_code):
-  #Common headers for all requests
   contest_link = get_contest()
-  #print (contest_link)
   submit_link = contest_link + '/submit'
-  #print (submit_link)
   ck = get_cookie()
   cookie = ck['cookie']
   ftaa = ck['ftaa']
-  #print (cookie)
   s = Session()
   s.cookies['X-User'] = cookie
   header = {
@@ -93,20 +97,23 @@ def submit(problem_code):
   #End common headers
   submit_page = s.get(submit_link, headers = header)
   print (submit_page.text)
-  '''csrf_token = (submit_page.text.split('name="X-Csrf-Token" content="')[1]).split('"')[0]
+  csrf_token = (submit_page.text.split('name="X-Csrf-Token" content="')[1]).split('"')[0]
   bfaa = (submit_page.text.split('window._bfaa = "')[1]).split('"')[0]
-  _tta = submit_page.text.split('name="_tta" value="')#[1]).split('"')[0]
+  _tta = (submit_page.text.split('name="_tta" value="')[1]).split('"')[0]
   token_submit_link = submit_link + '?csrf_token=' + csrf_token
-  print (csrf_token)
-  print (bfaa)
-  print (len(_tta))'''
+
+  ''' Roadblock !!! post parameter 'bfaa' seems to be js script generated and is impossible to replicate in a python code.
+      If anyone finds a solution to this, please let me know ... I will proceed further with this script'''
   
   
 
 
-#inp = sys.argv[1]
+inp = sys.argv[1]
 #inp = "https://codeforces.com/contest/911"
-inp = 'A'
+#inp = 'A'
+''' usage python3 cf_submitter.py contest_link ----> sets the contest link
+          python3 cf_submitter.py problem_ID(A, B, C etc) ----> submits the problem !!!
+          '''
 if (inp.find('codeforces.com') != -1):
   set_contest(inp)
 else:
