@@ -10,7 +10,7 @@ Create a command line problem submitter for codeforces.com contests (cf rounds)
 3. Login/Relogin to codeforces and check option for Remember me for a month
 4. Go to http://codeforces.com and Inspect Element in browser
 5. Search all these parameters separately : **bfaa**, **_tta**, **csrf_token**
-6. Substitute values at the beginning of the script     // _tta is essential rest are optional
+6. Substitute values at the beginning of the script
 
 **Additional steps for ease of access**
 
