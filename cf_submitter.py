@@ -3,7 +3,6 @@ import sys
 import sqlite3
 from sqlite3 import Error
 import pickle
-import getpass
 import requests
 from bs4 import BeautifulSoup
 
