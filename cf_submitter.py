@@ -8,7 +8,7 @@ from bs4 import BeautifulSoup
 
 
 # NOTE : This code works if you are logged in to codeforces in firefox
-# Codeforces expires once in a month on a browser with remember me option selected
+# Codeforces cookies expire once in a month on a browser with remember me option selected
 
 
 '''
