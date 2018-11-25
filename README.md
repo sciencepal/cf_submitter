@@ -24,9 +24,9 @@ Create a command line problem submitter for codeforces.com contests (cf rounds)
 1. When you register for a contest, copy the contest URL
 2. In Command Line, type 'cf <contest_link>' without quotes.
    This sets contest and cookies
-3. If you write all codes in the same file (like me), set the path of that file in the script
-    Type 'python3 /opt/cf_submitter/cf_submitter.py <problem_code>' in terminal without quotes
-    (eg. 'python3 /opt/cf_submitter/cf_submitter.py A' submits solution to problem A)
+3. If you write all codes in the same file (like me), set the path of that file in the script.
+    Type 'python3 /opt/cf_submitter/cf_submitter.py <problem_code>' in terminal without quotes.
+    (eg. 'python3 /opt/cf_submitter/cf_submitter.py A' submits solution to problem A).
     If you have followed the optional ease of access steps, the same can be achieved by typing
     'cf A' in terminal
 4. Else you can specify the file path of your solution file as a parameter like : 
