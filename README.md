@@ -2,7 +2,7 @@
 Create a command line problem submitter for codeforces.com contests (cf rounds)
 
 
-**Steps to install :**
+**Steps to install**
 
 1. Clone repo to local (say, /opt/cf_submitter)
 2. Go to Firefox browser
@@ -19,7 +19,7 @@ Create a command line problem submitter for codeforces.com contests (cf rounds)
 9. Save and exit
 8. In command line type 'source ~/.bashrc' without quotes
 
-**Steps to run : **
+**Steps to run**
 
 1. When you register for a contest, copy the contest URL
 2. In Command Line, type 'cf <contest_link>' without quotes.
