@@ -43,7 +43,7 @@ def set_cookie(): # store latest cookies in pickle file
   ck3 = ''
   ck_dict = {}
   
-  ''' Firefox / Chrome cookies are stored in sqlite db
+  ''' Firefox cookies are stored in sqlite db
       However they have lock acquired in their original location (browser process is expected to be running)
       Hence the need to copy to another location
       Chrome cookies are encrypted and is difficult to decrypt them on Linux
@@ -156,7 +156,6 @@ def submit(problem_code):       # code to submit problem
   global ftaa
   global language_id
   soup = BeautifulSoup(submit_page.content, 'html.parser')
-  print (str(soup.body.find('div', id='body').find('form')))
   try:
     csrf_token = str(soup.body.find('div', id='body').find('form').find('input', type='hidden')['value']) # usually available in response
   except:
@@ -209,11 +208,6 @@ def submit(problem_code):       # code to submit problem
 
 try:
   inp = sys.argv[1]
-  #inp = "https://codeforces.com/contest/911"
-  #inp = 'A'
-  ''' usage python3 cf_submitter.py contest_link ----> sets the contest link
-            python3 cf_submitter.py problem_ID file_path(optional) ----> submits the problem !!!
-            '''
   if (inp.find('codeforces.com') != -1):
     set_contest(inp)
   else:
